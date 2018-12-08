@@ -1,0 +1,14 @@
+body{
+    background-color:grey;
+    text-align: center;
+}
+.jumbotron{
+    margin: 10px;
+    background-color: lightcyan;
+}
+.option{
+    font-weight: bolder;
+}
+p{
+    font-size: 20px;
+}
