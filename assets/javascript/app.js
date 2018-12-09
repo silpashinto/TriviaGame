@@ -62,12 +62,12 @@ var triviaObj = {
   startTrivia: function () {
 
     //resetting variables
-    timeTofinish = 10;
-    objsubSet = 0;
-    intervalId = 0;
-    correctAnswers = 0;
-    wrongAnswers = 0;
-    unattented = 0;
+    triviaObj.timeTofinish = 10;
+    triviaObj.objsubSet = 0;
+    triviaObj.intervalId = 0;
+    triviaObj.correctAnswers = 0;
+    triviaObj.wrongAnswers = 0;
+    triviaObj.unattented = 0;
 
     // hide the start button
     $("#start").hide();
@@ -88,12 +88,16 @@ var triviaObj = {
     var getAnswer = Object.values(triviaObj.answers)[triviaObj.objsubSet];
 
     //creating html element for question 
-    var newQuestionElem = $("<p>").text(triviaObj.objsubSet + 1 + '. ' + getQuestions);
+    var newQuestionElem = $("<p>").text(getQuestions);
     $("#questionDiv").append(newQuestionElem);
     // creating html element for options
     var optionsElemDiv = $("<div>").addClass("list-group");
     $("#questionDiv").append(optionsElemDiv);
     // for each options
+    $('#results').hide();
+
+
+    $('#questionDiv').show();
     $.each(getOptions, function (index, key) {
 
       var optionsElem = $('<a>').addClass("list-group-item list-group-item-action list-group-item-dark option").attr("data-name", key).text(key);
@@ -108,7 +112,7 @@ var triviaObj = {
       //check the result
       triviaObj.checkResult($(this).attr('data-name'), getAnswer);
       //timer for the result page
-      triviaObj.timeTofinish = 2;
+      triviaObj.timeTofinish = 1;
 
     });
 
@@ -167,7 +171,7 @@ var triviaObj = {
       $('#questionDiv').hide();
       $('#results').show();
       $('#results').html('<h3>Time Up!</h3>');
-      triviaObj.timeTofinish = 2;
+      triviaObj.timeTofinish = 1;
       triviaObj.intervalId = setInterval(triviaObj.delay, 1000);
 
     }// if all questions over
@@ -185,6 +189,7 @@ var triviaObj = {
 
 
     }
+    
   },//Timer for the alerts and call next question
   delay: function () {
 
