@@ -100,7 +100,8 @@ var triviaObj = {
     $('#questionDiv').show();
     $.each(getOptions, function (index, key) {
 
-      var optionsElem = $('<a>').addClass("list-group-item list-group-item-action list-group-item-dark option").attr("data-name", key).text(key);
+      var optionsElem = $('<a>').addClass("list-group-item list-group-item-action list-group-item-dark option")
+      .attr("data-name", key).text(key);
       optionsElemDiv.append(optionsElem);
 
     })
